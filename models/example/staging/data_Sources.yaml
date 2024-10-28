@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: dbusa
+    database: nweave
+    schema: public
+    tables:
+      - name: dbusa_property
+      - name: reonomy_property
