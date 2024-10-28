@@ -9,3 +9,6 @@ models:
         tests:
           - unique
           - not_null
+  - name: dbusa_with_county
+    config:
+      materialized: table
