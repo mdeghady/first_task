@@ -5,7 +5,7 @@ models:
     config:
       materialized: table
     columns:
-      - name: state
+      - name: name
         tests:
           - unique
           - not_null
@@ -20,4 +20,18 @@ models:
         tests:
           - relationships:
               to: ref('State')
+              field: id
+  - name: City
+    config:
+      materialized: table
+    columns:
+      - name: state_id
+        tests:
+          - relationships:
+              to: ref('State')
+              field: id
+      - name: county_id
+        tests:
+          - relationships:
+              to: ref('County')
               field: id
