@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: dbusa
+  - name: main_Sources
     database: nweave
     schema: public
     tables:
