@@ -13,4 +13,4 @@ SELECT cns.county AS name , s.id AS state_id ,
  ROW_NUMBER() OVER (ORDER BY cns.county) AS id
 FROM counties_and_states AS cns
 LEFT JOIN {{ ref("State") }} AS s
-ON cns.state=s.state
+ON cns.state=s.name
