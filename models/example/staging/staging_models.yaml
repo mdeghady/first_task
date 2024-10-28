@@ -12,3 +12,12 @@ models:
   - name: dbusa_with_county
     config:
       materialized: table
+  - name: County
+    config:
+      materialized: table
+    columns:
+      - name: state_id
+        tests:
+          - relationships:
+              to: ref('State')
+              field: id
