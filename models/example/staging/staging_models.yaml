@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: State
+    config:
+      materialized: table
+    columns:
+      - name: state
+        tests:
+          - unique
+          - not_null
