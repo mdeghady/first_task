@@ -27,7 +27,7 @@ with sources_full_address AS(
 
 
 SELECT sources_full_address.address,
-    us_geo_parts.zip_code AS zip_code ,
+    us_geo_parts.zip_id AS zip_code_id ,
     us_geo_parts.state_id AS state_id ,
     us_geo_parts.county_id AS county_id ,
     us_geo_parts.city_id AS city_id ,
