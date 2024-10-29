@@ -54,3 +54,27 @@ models:
           - relationships:
               to: ref('City')
               field: id
+  - name: Address
+    config:
+      materialized: table
+    columns:
+      - name: state_id
+        tests:
+          - relationships:
+              to: ref('State')
+              field: id
+      - name: county_id
+        tests:
+          - relationships:
+              to: ref('County')
+              field: id
+      - name: city_id
+        tests:
+          - relationships:
+              to: ref('City')
+              field: id
+      - name: zip_code_id
+        tests:
+          - relationships:
+              to: ref('zip_code')
+              field: id
