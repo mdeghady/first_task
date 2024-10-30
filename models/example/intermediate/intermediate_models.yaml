@@ -9,3 +9,11 @@ models:
         tests:
           - unique
           - not_null
+  - name: reonomy_after_processing
+    config:
+      materialized: table
+    columns:
+      - name: property_id
+        tests:
+          - unique
+          - not_null
