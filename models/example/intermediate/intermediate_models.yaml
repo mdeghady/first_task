@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dbusa_property_after_processing
+    config:
+      materialized: table
+    columns:
+      - name: dbusa_id
+        tests:
+          - unique
+          - not_null
