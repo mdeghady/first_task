@@ -14,7 +14,7 @@ WITH all_usa_gro_parts AS(
     LEFT JOIN {{ ref("zip_code") }} AS zips
     ON addresses.zip_code_id = zips.id
 ), dbusa_cleaned AS(
-    SELECT dbusa_id , state,
+    SELECT property_id , state,
     TRIM(REPLACE(LOWER(county) , 'county' , '') ) AS county,
     TRIM(REPLACE(LOWER(city) , 'city' , '') ) AS city,
     TRIM(LOWER(address)) AS address,
@@ -23,7 +23,7 @@ WITH all_usa_gro_parts AS(
 
 )
 
-SELECT dbusa_cleaned.dbusa_id,
+SELECT dbusa_cleaned.property_id,
     all_usa_gro_parts.address_id,
     all_usa_gro_parts.zip_id AS zip_code_id ,
     all_usa_gro_parts.state_id AS state_id ,
