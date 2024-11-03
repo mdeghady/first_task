@@ -2,78 +2,99 @@ version: 2
 
 models:
   - name: State
+    description: States of the USA Stored As codes e.g. Texas --> TX
     config:
       materialized: table
     columns:
+      - name: id
+        description: unique identifier for every state
       - name: name
+        description: The code of the state
         tests:
           - unique
           - not_null
   - name: dbusa_with_county
+    description: dbusa_property source with county column added from seeds csv file
     config:
       materialized: table
+
   - name: County
+    description: Counties Names of the USA with its respective state
     config:
       materialized: table
     columns:
       - name: state_id
+        description: foreign key to be referenced with State model
         tests:
           - relationships:
               to: ref('State')
               field: id
+
   - name: City
+    description: Cities of the USA with its respective state and county
     config:
       materialized: table
     columns:
       - name: state_id
+        description: foreign key to be referenced with State model
         tests:
           - relationships:
               to: ref('State')
               field: id
       - name: county_id
+        description: foreign key to be referenced with County model
         tests:
           - relationships:
               to: ref('County')
               field: id
   - name: zip_code
+    description: zip codes of the USA with its respective state, county and city
     config:
       materialized: table
     columns:
       - name: state_id
+        description: foreign key to be referenced with State model
         tests:
           - relationships:
               to: ref('State')
               field: id
       - name: county_id
+        description: foreign key to be referenced with County model
         tests:
           - relationships:
               to: ref('County')
               field: id
       - name: city_id
+        description: foreign key to be referenced with City model
         tests:
           - relationships:
               to: ref('City')
               field: id
   - name: Address
+    description: zip codes of the USA with its respective state, county, city and zip code
     config:
       materialized: table
     columns:
       - name: state_id
+        description: foreign key to be referenced with State model
         tests:
           - relationships:
               to: ref('State')
               field: id
       - name: county_id
+        description: foreign key to be referenced with County model
         tests:
           - relationships:
               to: ref('County')
               field: id
       - name: city_id
+        description: foreign key to be referenced with City model
         tests:
           - relationships:
               to: ref('City')
               field: id
       - name: zip_code_id
+        description: foreign key to be referenced with zip_code model
         tests:
           - relationships:
               to: ref('zip_code')
