@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dbusa_presentation
+    description: dbusa source data with every USA geographic part after processing
+                  to be an input for splink model
+
+  - name: reonomy_presentation
+    description: reonomy source data with every USA geographic part after processing 
+                  to be an input for splink model
