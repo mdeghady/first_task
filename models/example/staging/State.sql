@@ -7,6 +7,6 @@ WITH all_data_states AS(
 )
 
 --- define city table with generated id
-SELECT state AS name , ROW_NUMBER() OVER (ORDER BY state) AS id
+SELECT state AS name , md5(state) AS id
 FROM all_data_states
 WHERE state IS NOT NULL

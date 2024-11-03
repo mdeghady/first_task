@@ -4,7 +4,11 @@ models:
   - name: dbusa_presentation
     description: dbusa source data with every USA geographic part after processing
                   to be an input for splink model
+    config:
+      materialized: table
 
   - name: reonomy_presentation
     description: reonomy source data with every USA geographic part after processing 
                   to be an input for splink model
+    config:
+      materialized: table
