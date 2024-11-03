@@ -2,6 +2,8 @@ version: 2
 
 models:
   - name: dbusa_property_after_processing
+    description: dbusa source data after replacing every USA geographic part
+      with foreign key reference to model with the same name
     config:
       materialized: table
     columns:
@@ -10,6 +12,8 @@ models:
           - unique
           - not_null
   - name: reonomy_after_processing
+    description: reonomy source data after replacing every USA geographic part
+      with foriegn key reference to model with the same name
     config:
       materialized: table
     columns:
